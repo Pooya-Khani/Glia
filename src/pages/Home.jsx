@@ -41,17 +41,29 @@ function Home() {
 				<span className="text-neutral-200 text-sm">
 					AI-Powered Solutions For:
 				</span>
-				<div className="flex gap-2.5">
+				<div className="flex flex-col lg:flex-row gap-2.5">
 					<Button customClass="bg-teal-950 text-white py-1 px-4 font-bold border border-fuchsia-600">
-						<img src="/home/android-icon.png" alt="android icon" />
+						<img
+							className="w-6 h-6"
+							src="/home/android-icon.png"
+							alt="android icon"
+						/>
 						<span>Virtual Assistants</span>
 					</Button>
 					<Button customClass="bg-teal-950 text-white py-1 px-4 font-bold border border-fuchsia-600">
-						<img src="/home/user-icon.png" alt="User icon" />
+						<img
+							className="w-6 h-6"
+							src="/home/user-icon.png"
+							alt="User icon"
+						/>
 						<span>Front-line Teams</span>
 					</Button>
 					<Button customClass="bg-teal-950 text-white py-1 px-4 font-bold border border-fuchsia-600">
-						<img src="/home/phone-icon.png" alt="android icon" />
+						<img
+							className="w-6 h-6"
+							src="/home/phone-icon.png"
+							alt="android icon"
+						/>
 						<span>Mobile & Digital</span>
 					</Button>
 				</div>
@@ -65,160 +77,195 @@ function Home() {
 				</div>
 			</section>
 			{/* Bank section */}
-			<section className="flex flex-col justify-center items-center rounded-2xl text-white gap-6 bg-emerald-950 p-10 min-h-[80vh] mx-4 my-4">
-				<span className="w-fit bg-emerald-950 rounded-full border border-zinc-400 shadow-sm shadow-white px-3 font-semibold">
-					BUILT FOR BANKING
-				</span>
-				<h3 className="text-4xl w-xl font-bold text-center">
-					We're Built for High Stakes Banking Interactions.
-				</h3>
-				<div className="w-4xl">
-					<div className="min-h-screen flex flex-col items-center justify-center py-20 mx-28 font-sans">
-						{/* کانتینر اصلی با عرض ثابت و بزرگ */}
-						<div className="">
-							{/* === TAB HEADERS === */}
-							<div className="flex items-end pl-0">
-								{/* دکمه Banks (سمت چپ) */}
-								<button
-									onClick={() => setActiveTab("banks")}
-									className={`
-              w-[50%] h-20 text-xl font-bold transition-all duration-200
-              flex items-center justify-center
+			<section className="mx-4 my-4 flex min-h-[80vh] flex-col items-center justify-center gap-8 rounded-2xl bg-emerald-950 px-4 py-12 text-white md:p-10">
+				{/* --- Header --- */}
+				<div className="flex flex-col items-center gap-6 text-center">
+					<span className="w-fit rounded-full border border-zinc-400 bg-emerald-950 px-4 py-1 text-xs font-semibold shadow-sm shadow-white md:text-sm">
+						BUILT FOR BANKING
+					</span>
+					<h3 className="w-full max-w-2xl text-3xl font-bold md:text-4xl">
+						We're Built for High Stakes Banking Interactions.
+					</h3>
+				</div>
+
+				{/* --- Main Content Container --- */}
+				<div className="w-full max-w-6xl pt-8">
+					{/* === TAB HEADERS === */}
+					<div className="flex items-end gap-4 px-0 md:px-8 lg:px-0">
+						{/* Banks Tab */}
+						<button
+							onClick={() => setActiveTab("banks")}
+							className={`
+              flex h-14 w-1/2 items-center justify-center text-lg font-bold transition-all duration-300 md:h-20 md:text-xl
               ${
 								activeTab === "banks"
-									? "bg-white text-black rounded-t-3xl rounded-b-none  z-10"
-									: "bg-white/15 text-white rounded-[20px] mb-4 ml-2 hover:bg-[#2a4240]"
+									? "z-10 rounded-t-3xl bg-white text-black"
+									: "mb-2 ml-2 rounded-[20px] bg-white/10 text-white/80 hover:bg-white/20 md:mb-4"
 							}
             `}
-								>
-									Banks
-								</button>
+						>
+							Banks
+						</button>
 
-								{/* دکمه Credit Unions (سمت راست) */}
-								<button
-									onClick={() => setActiveTab("credit-unions")}
-									className={`
-              w-[50%] h-20 text-xl font-bold transition-all duration-200
-              flex items-center justify-center
+						{/* Credit Unions Tab */}
+						<button
+							onClick={() => setActiveTab("credit-unions")}
+							className={`
+              flex h-14 w-1/2 items-center justify-center text-lg font-bold transition-all duration-300 md:h-20 md:text-xl
               ${
 								activeTab === "credit-unions"
-									? "bg-white text-black rounded-t-3xl rounded-b-none  z-10"
-									: "bg-white/15 text-white rounded-[20px] mb-2 ml-1 hover:bg-[#2a4240]"
+									? "z-10 rounded-t-3xl bg-white text-black"
+									: "mb-2 mr-2 rounded-[20px] bg-white/10 text-white/80 hover:bg-white/20 md:mb-4"
 							}
             `}
-								>
-									Credit Unions
-								</button>
+						>
+							Credit Unions
+						</button>
+					</div>
+
+					{/* === MAIN CARD BODY === */}
+					<div
+						className={`
+            relative w-full bg-white p-6 shadow-2xl md:p-12 lg:p-16
+            rounded-b-[40px] transition-all duration-300
+            ${
+							activeTab === "banks"
+								? "rounded-tr-[30px] md:rounded-tr-[40px] rounded-tl-none"
+								: "rounded-tl-[30px] md:rounded-tl-[40px]"
+						}
+            ${
+							activeTab === "credit-unions"
+								? "rounded-tr-none"
+								: "rounded-tr-[30px] md:rounded-tr-[40px]"
+						}
+          `}
+					>
+						{/* Carousel Section */}
+						<div className="mb-8 w-full">
+							{/* کامپوننت اسلایدر شما */}
+							<BanksCarousel />
+						</div>
+
+						{/* Content Split (Left: Text, Right: Stats) */}
+						<div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
+							{/* Left Column: Text & Features */}
+							<div className="flex flex-col gap-8 lg:w-1/2">
+								<h3 className="text-2xl font-bold text-black lg:text-3xl">
+									AI that helps you grow your bank, not your team.
+								</h3>
+
+								<ul className="flex flex-col gap-4">
+									<li className="flex items-start gap-3 text-sm text-zinc-800 md:text-base">
+										<img
+											className="mt-1 h-6 w-6 shrink-0"
+											src="/home/list-icon.png"
+											alt="Check"
+										/>
+										<span>
+											Deliver effortless experiences that keep customers coming
+											back
+										</span>
+									</li>
+									<li className="flex items-start gap-3 text-sm text-zinc-800 md:text-base">
+										<img
+											className="mt-1 h-6 w-6 shrink-0"
+											src="/home/list-icon.png"
+											alt="Check"
+										/>
+										<span>
+											Raise conversion rates with tools made for banking flows
+										</span>
+									</li>
+									<li className="flex items-start gap-3 text-sm text-zinc-800 md:text-base">
+										<img
+											className="mt-1 h-6 w-6 shrink-0"
+											src="/home/list-icon.png"
+											alt="Check"
+										/>
+										<span>
+											Let leaders focus on outcomes—AI handles the metrics
+										</span>
+									</li>
+								</ul>
+
+								<div className="mt-2">
+									<Button customClass="bg-lime-500 text-neutral-800 py-3 px-6 md:py-2 md:px-4 rounded-full font-bold hover:bg-neutral-800 hover:text-white hover:shadow-lg transition-all w-full md:w-auto">
+										{activeTab === "banks"
+											? "Glia for Banks"
+											: "Glia for Credit Unions"}
+									</Button>
+								</div>
 							</div>
 
-							{/* === MAIN CONTENT BODY === */}
-							<div
-								className={`
-            bg-white p-16 w-2xl md:w-5xl shadow-2xl
-            rounded-b-[40px] rounded-tr-[40px]
-            ${activeTab === "banks" ? "rounded-tl-none" : "rounded-tl-[40px]"} 
-            ${activeTab === "credit-unions" ? "rounded-tr-none" : ""}
-          `}
-							>
-								{/* slider Banks */}
-								<BanksCarousel />
-								{/* rest of the content */}
-								<div className="flex gap-10 mt-4">
-									<div className="flex flex-col gap-6 w-[50%]">
-										<h3 className="text-black font-bold text-3xl">
-											AI that helps you grow your bank, not your team.
-										</h3>
-										<ul className="flex flex-col gap-2">
-											<li className="flex gap-2.5 items-center  text-sm">
-												<img
-													className="w-6 h-6"
-													src="/home/list-icon.png"
-													alt="Thick Icon"
-												/>
-												<span className="text-zinc-800">
-													Deliver effortless experiences that keep customers
-													coming back
-												</span>
-											</li>
-											<li className="flex gap-2.5 items-center  text-sm">
-												<img
-													className="w-6 h-6"
-													src="/home/list-icon.png"
-													alt="Thick Icon"
-												/>
-												<span className="text-zinc-800">
-													Raise conversion rates with tools made for banking
-													flows
-												</span>
-											</li>
-											<li className="flex gap-2.5 items-center  text-sm">
-												<img
-													className="w-6 h-6"
-													src="/home/list-icon.png"
-													alt="Thick Icon"
-												/>
-												<span className="text-zinc-800">
-													Let leaders focus on outcomes—AI handles the metrics
-												</span>
-											</li>
-										</ul>
-										<Button customClass="bg-lime-500 text-neutral-800 py-2 px-4 border-none hover:bg-neutral-800 hover:text-white hover:shadow hover:shadow-lime-400 w-fit font-bold">
-											Glia for Banks
-										</Button>
+							{/* Right Column: Stats Box */}
+							<div className="flex flex-col justify-between rounded-3xl bg-orange-50 p-6 lg:w-1/2 lg:p-8">
+								<div className="flex flex-col gap-6">
+									{/* Stat Item 1 */}
+									<div className="flex items-center justify-between gap-4 border-b border-orange-200/50 pb-4 last:border-0 last:pb-0">
+										<div className="flex items-start gap-3">
+											<img
+												className="mt-0.5 h-6 w-6 shrink-0"
+												src="/home/rise-icon.png"
+												alt="Icon"
+											/>
+											<span className="text-sm text-zinc-800 md:text-base">
+												Increased digital branch loan dollars by
+											</span>
+										</div>
+										<span className="text-xl font-bold text-black md:text-2xl">
+											511%
+										</span>
 									</div>
-									<div className="bg-orange-50 px-4 py-4 flex gap-8 rounded-2xl">
-										<div>
-											<ul className="flex flex-col gap-10">
-												<li className="flex gap-2.5 items-center  text-sm">
-													<img
-														className="w-6 h-6"
-														src="/home/rise-icon.png"
-														alt="Thick Icon"
-													/>
-													<span className="text-zinc-800">
-														Increased digital branch loan dollars by
-													</span>
-												</li>
-												<li className="flex gap-2.5 items-center  text-sm">
-													<img
-														className="w-6 h-6"
-														src="/home/rise-icon.png"
-														alt="Thick Icon"
-													/>
-													<span className="text-zinc-800">
-														Boosted digital containment rate to
-													</span>
-												</li>
-												<li className="flex gap-2.5 items-center  text-sm">
-													<img
-														className="w-6 h-6 rotate-90"
-														src="/home/rise-icon.png"
-														alt="Thick Icon"
-													/>
-													<span className="text-zinc-800">
-														Slashed average wait time by
-													</span>
-												</li>
-												<li className="flex gap-2.5 items-center  text-sm">
-													<img
-														className="w-6 h-6 rotate-90"
-														src="/home/rise-icon.png"
-														alt="Thick Icon"
-													/>
-													<span className="text-zinc-800">
-														Reduced abandonment rate by
-													</span>
-												</li>
-											</ul>
+
+									{/* Stat Item 2 */}
+									<div className="flex items-center justify-between gap-4 border-b border-orange-200/50 pb-4 last:border-0 last:pb-0">
+										<div className="flex items-start gap-3">
+											<img
+												className="mt-0.5 h-6 w-6 shrink-0"
+												src="/home/rise-icon.png"
+												alt="Icon"
+											/>
+											<span className="text-sm text-zinc-800 md:text-base">
+												Boosted digital containment rate to
+											</span>
 										</div>
-										<div>
-											<ul className="text-black flex flex-col gap-8">
-												<li className="font-bold text-xl">511%</li>
-												<li className="font-bold text-xl">62%</li>
-												<li className="font-bold text-xl">90%</li>
-												<li className="font-bold text-xl">12%</li>
-											</ul>
+										<span className="text-xl font-bold text-black md:text-2xl">
+											62%
+										</span>
+									</div>
+
+									{/* Stat Item 3 */}
+									<div className="flex items-center justify-between gap-4 border-b border-orange-200/50 pb-4 last:border-0 last:pb-0">
+										<div className="flex items-start gap-3">
+											<img
+												className="mt-0.5 h-6 w-6 rotate-90 shrink-0"
+												src="/home/rise-icon.png"
+												alt="Icon"
+											/>
+											<span className="text-sm text-zinc-800 md:text-base">
+												Slashed average wait time by
+											</span>
 										</div>
+										<span className="text-xl font-bold text-black md:text-2xl">
+											90%
+										</span>
+									</div>
+
+									{/* Stat Item 4 */}
+									<div className="flex items-center justify-between gap-4">
+										<div className="flex items-start gap-3">
+											<img
+												className="mt-0.5 h-6 w-6 rotate-90 shrink-0"
+												src="/home/rise-icon.png"
+												alt="Icon"
+											/>
+											<span className="text-sm text-zinc-800 md:text-base">
+												Reduced abandonment rate by
+											</span>
+										</div>
+										<span className="text-xl font-bold text-black md:text-2xl">
+											12%
+										</span>
 									</div>
 								</div>
 							</div>
@@ -226,11 +273,12 @@ function Home() {
 					</div>
 				</div>
 			</section>
+
 			{/* Ai section */}
 			<section className="relative bg-fuchsia-950 flex flex-col  rounded-2xl text-white gap-6 p-10 pt-20 min-h-[80vh] mx-4 my-4">
 				{/* buttom right */}
-				<div className="absolute rounded-2xl bottom-3 right-3 bg-[#2a0f3a] flex items-center justify-center p-6">
-					<div className="w-full max-w-96 space-y-6">
+				<div className="absolute hidden md:flex rounded-2xl w-80 lg:w-96 bottom-3 right-3 bg-[#2a0f3a] items-center justify-center p-6">
+					<div className=" space-y-6">
 						{/* First message */}
 						<div className="flex">
 							<div className="bg-white/90 text-black rounded-xl px-4 py-3 max-w-[85%] shadow-md">
@@ -277,7 +325,7 @@ function Home() {
 					{/* ul tabs */}
 					<div className="">
 						<div className="flex gap-10 text-white">
-							<div className="flex gap-8 max-w-4xl w-full">
+							<div className="flex flex-col lg:flex-row gap-8 max-w-4xl w-full">
 								{/* Left Tabs */}
 								<div className="space-y-6 w-40">
 									{tabs.map((t) => (
@@ -313,11 +361,17 @@ function Home() {
 										with virtual assistants built for your industry.
 									</p>
 
-									<button className="flex items-center space-x-2 font-semibold hover:opacity-80 transition">
+									<button className="flex items-center space-x-1 font-semibold hover:opacity-80 transition">
 										<span className="font-bold">
 											Meet Your Virtual Assistants
 										</span>
-										<span className="text-xl">→</span>
+										<span>
+											<img
+												src="/services/arrow-icon.png"
+												alt="icon"
+												className="w-6 h-6"
+											/>
+										</span>
 									</button>
 								</div>
 							</div>
@@ -326,39 +380,49 @@ function Home() {
 				</div>
 			</section>
 			{/* Join Us */}
-			<section className="flex flex-col justify-center items-center rounded-2xl text-white gap-6 bg-emerald-950 p-10 pb-12 px-24 min-h-[40vh] mx-4 my-4">
-				<div className="bg-purple-950 w-full px-40 rounded-2xl py-8 flex gap-20 justify-between items-center">
+			<section className="mx-4 my-4 flex min-h-[40vh] flex-col items-center justify-center gap-8 rounded-2xl bg-emerald-950 p-6 text-white md:p-10 lg:gap-12 lg:px-24 lg:pb-12">
+				{/* --- Purple Card Section --- */}
+				<div className="flex  flex-col items-start justify-between gap-8 rounded-2xl bg-purple-950 px-6 py-8 md:px-12 md:flex-row lg:items-center lg:gap-20 lg:px-20 xl:px-40">
 					<div className="flex flex-col gap-3">
-						<span className="w-fit bg-purple-950 rounded-full border border-zinc-400 shadow-sm shadow-white px-3 font-semibold">
+						<span className="w-fit rounded-full border border-zinc-400 bg-purple-950 px-3 py-1 text-xs font-semibold shadow-sm shadow-white md:text-sm">
 							Meet Glia
 						</span>
-						<h3 className="text-4xl w-xl font-bold">USAFTZ Interact 2025</h3>
-						<div className="flex gap-3">
-							<span className="border-r text-sm border-r-stone-500 text-stone-200 pr-3">
+						<h3 className="w-full max-w-xl text-3xl font-bold md:text-4xl">
+							USAFTZ Interact 2025
+						</h3>
+						<div className="flex flex-wrap gap-3">
+							<span className="border-r border-r-stone-500 pr-3 text-sm text-stone-200">
 								October 12–15, 2025
 							</span>
 							<span className="text-sm text-stone-200">San Diego, CA</span>
 						</div>
-						<p className="text-sm text-stone-200">
+						<p className="text-sm leading-relaxed text-stone-200">
 							Join us for an out-of-this-world experience at USAFTZs premier
 							customer and industry event.
 						</p>
 					</div>
-					<div>
-						<Button customClass="bg-purple-950 border border-fuchsia-600 px-6 py-2 font-bold">
+					<div className="w-auto shrink-0 ">
+						<Button customClass="bg-purple-950 border border-fuchsia-600 px-6 py-2 font-bold justify-center flex">
 							Join Us
 						</Button>
 					</div>
 				</div>
-				<div className="w-full  rounded-2xl py-8 flex gap-20 ">
-					<div className="w-[50%] flex flex-col gap-2.5">
-						<span className="w-fit bg-emerald-950 rounded-full border border-zinc-400 shadow-sm shadow-white px-3 font-semibold">
+
+				{/* --- Bottom Content Section --- */}
+				<div className="flex w-full flex-col gap-8 py-8 lg:flex-row lg:gap-20">
+					{/* Left Text */}
+					<div className="flex w-full flex-col gap-2.5 lg:w-1/2">
+						<span className="w-fit rounded-full border border-zinc-400 bg-emerald-950 px-3 py-1 text-xs font-semibold shadow-sm shadow-white md:text-sm">
 							Unified Interactions
 						</span>
-						<h2 className="font-bold text-5xl">Leave Customers Speechless</h2>
+						<h2 className="text-4xl font-bold md:text-5xl">
+							Leave Customers Speechless
+						</h2>
 					</div>
-					<div className="w-[50%] flex flex-col gap-5 mt-4">
-						<p className="text-sm text-stone-300">
+
+					{/* Right Text & Button */}
+					<div className="mt-0 flex w-full flex-col gap-5 lg:mt-4 lg:w-1/2">
+						<p className="text-sm leading-relaxed text-stone-300">
 							Skip the small talk and deliver the big changes customers have
 							been waiting for. USAFTZ’s AI contact center platform offers the
 							fully connected voice and digital experience today’s customers
@@ -370,6 +434,7 @@ function Home() {
 					</div>
 				</div>
 			</section>
+
 			{/* USAFTZ VOICE */}
 			<section>
 				<div className="w-full bg-white py-20 px-4 md:px-8 lg:px-16 font-sans flex justify-center">
@@ -643,7 +708,7 @@ function Home() {
 				</div>
 			</section>
 			{/* THE GLIA DIFFERENCE */}
-			<section className="w-full bg-orange-50 rounded-2xl mx-4 min-h-screen py-12 px-4 md:px-8 lg:px-16 font-sans flex flex-col justify-center">
+			<section className="bg-orange-50 rounded-2xl mx-4 min-h-screen py-12 px-4 md:px-8 lg:px-16 font-sans flex flex-col justify-center items-center">
 				<div className="max-w-[1200px] w-full flex flex-col space-y-16">
 					{/* === 1. BLACK BANNER (TOP) === */}
 					<div className="w-full bg-[#050505] rounded-[30px] py-12 px-6 text-center shadow-2xl flex flex-col items-center justify-center space-y-6">

@@ -10,7 +10,7 @@ function News() {
 	return (
 		<div className="bg-white mx-2">
 			{/* Hero */}
-			<section className="flex flex-col justify-center items-center rounded-2xl text-white gap-3 bg-emerald-950 p-10 min-h-[80vh]">
+			<section className="flex flex-col justify-center items-center rounded-2xl mx-4 my-4 text-white gap-3 bg-emerald-950 p-10 min-h-[80vh]">
 				<div className="flex flex-col items-center justify-center gap-2 mt-6">
 					<h1 className="font-bold text-3xl">Newsroom</h1>
 					<span className="text-xs">
@@ -74,15 +74,17 @@ function News() {
 			{/* News */}
 			<section className="flex flex-col justify-center items-center rounded-2xl text-white gap-3 p-10 ">
 				{/* search and filter */}
-				<div className="flex justify-between w-full">
-					<div className="">
-						<div className="flex items-center bg-[#F1F3F1] rounded-full px-2 py-2 border border-gray-200 w-fit gap-2">
+				<div className="flex w-full flex-col gap-4 md:flex-row md:items-center md:justify-between">
+					{/* --- Tabs Section --- */}
+					{/* در موبایل اسکرول افقی می‌خورد و تمام عرض است */}
+					<div className="w-full overflow-x-auto md:w-auto">
+						<div className="flex w-fit min-w-full items-center gap-2 rounded-full border border-gray-200 bg-[#F1F3F1] px-2 py-2 md:min-w-0">
 							{tabs.map((tab) => (
 								<button
 									key={tab}
 									onClick={() => setActive(tab)}
 									className={`
-            px-6 py-2 rounded-full font-semibold transition-all
+            whitespace-nowrap rounded-full px-6 py-2 text-xs font-semibold transition-all
             ${
 							active === tab
 								? "bg-white text-purple-600 shadow-sm"
@@ -95,14 +97,22 @@ function News() {
 							))}
 						</div>
 					</div>
-					<div className="relative ">
+
+					{/* --- Search Section --- */}
+					{/* در موبایل تمام عرض، در دسکتاپ اندازه خودکار */}
+					<div className="relative w-full md:w-auto">
 						<input
 							type="text"
 							placeholder="Search by keyword"
-							className="text-left outline-none placeholder-stone-500 py-4 px-14 rounded-xl bg-stone-100 border border-stone-400"
+							className="w-full rounded-xl border border-stone-400 bg-stone-100 py-3.5 pl-12 pr-4 text-left outline-none placeholder-stone-500 md:w-80"
 						/>
-						<span className="absolute left-2.5 top-5 w-6 h-6">
-							<img src="/news/search-icon.png" alt="search icon" />
+						{/* آیکون را با روش مطمئن‌تری وسط‌چین کردم */}
+						<span className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 transform">
+							<img
+								src="/news/search-icon.png"
+								alt="search icon"
+								className="h-full w-full object-contain"
+							/>
 						</span>
 					</div>
 				</div>
@@ -164,13 +174,13 @@ function News() {
 						}
 						date={"April 22, 2025"}
 					/>
-					{/* <NewsCard
+					<NewsCard
 						img={"/news/news-9.png"}
 						title={
 							"Blend and Glia Partner to Transform Customer and Member Interactions for Bank and Credit Union Lending Teams"
 						}
 						date={"May 6, 2025"}
-					/> */}
+					/>
 					<NewsCard
 						img={"/news/news-10.png"}
 						title={
@@ -178,7 +188,7 @@ function News() {
 						}
 						date={"March 31, 2025"}
 					/>
-					{/* <NewsCard
+					<NewsCard
 						img={"/news/news-11.png"}
 						title={
 							"[Insurity] Insurity Expands Integration with Glia to Enhance Customer and Agent Interactions Across Core Insurance Solutions"
@@ -191,7 +201,7 @@ function News() {
 							"Contact Center Technology Pioneer Michael Tessler Joins Glia’s Board of Directors"
 						}
 						date={"December 13, 2024"}
-					/> */}
+					/>
 				</div>
 			</section>
 			{/* Pagination */}

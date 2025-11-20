@@ -4,7 +4,7 @@ import BrandsCarousel from "../components/BrandsCarousel";
 function Services() {
 	return (
 		<div className="bg-white">
-			<section className="flex justify-center items-center bg-orange-50 mx-4 my-8 rounded-xl">
+			<section className="flex flex-col lg:flex-row justify-center items-center bg-orange-50 mx-4 my-8 rounded-xl">
 				<div className="flex flex-col justify-center px-10 gap-3">
 					<span className="w-fit bg-stone-300 rounded-full px-3 font-semibold">
 						Priceless Pricing™
@@ -23,26 +23,26 @@ function Services() {
 					<img
 						src="/services/services-hero.png"
 						alt="Services Hero Image"
-						className="w-full object-cover rounded-[50px] p-10"
+						className=" object-cover rounded-xl lg:p-10"
 					/>
-					<div className="flex flex-col gap-2 absolute top-40 left-0 bg-[url(/services/services-hero-bg.png)]  bg-cover bg-center bg-no-repeat justify-center items-center rounded-3xl p-5 px-8 text-white">
-						<span className="flex items-center justify-center w-fit text-3xl font-bold">
+					<div className="flex flex-col gap-2 absolute top-40 left-3  bg-[url(/services/services-hero-bg.png)]  bg-cover bg-center bg-no-repeat justify-center items-center rounded-3xl p-3 px-4 lg:p-5 lg:px-8 text-white">
+						<span className="flex items-center justify-center w-fit text-xl lg:text-3xl font-bold">
 							0$
 						</span>
 						<span className="flex items-center justify-center w-fit text-xs ">
 							per minute
 						</span>
 					</div>
-					<div className="flex flex-col gap-2 absolute top-10 right-16 bg-[url(/services/services-hero-bg.png)]  bg-cover bg-center bg-no-repeat justify-center items-center rounded-3xl p-5 px-8 text-white">
-						<span className="flex items-center justify-center w-fit text-3xl font-bold">
+					<div className="flex flex-col gap-2 absolute bottom-10 right-3  bg-[url(/services/services-hero-bg.png)]  bg-cover bg-center bg-no-repeat justify-center items-center rounded-3xl p-3 px-4 lg:p-5 lg:px-8 text-white">
+						<span className="flex items-center justify-center w-fit text-xl lg:text-3xl font-bold">
 							0$
 						</span>
 						<span className="flex items-center justify-center w-fit text-xs ">
 							per minute
 						</span>
 					</div>
-					<div className="flex flex-col gap-2 absolute bottom-6 right-30 bg-[url(/services/services-hero-bg.png)]  bg-cover bg-center bg-no-repeat justify-center items-center rounded-3xl p-5 px-8 text-white">
-						<span className="flex items-center justify-center w-fit text-3xl font-bold">
+					<div className="flex flex-col gap-2 absolute top-8 right-8  bg-[url(/services/services-hero-bg.png)]  bg-cover bg-center bg-no-repeat justify-center items-center rounded-3xl p-3 px-4 lg:p-5 lg:px-8 text-white">
+						<span className="flex items-center justify-center w-fit text-xl lg:text-3xl font-bold">
 							0$
 						</span>
 						<span className="flex items-center justify-center w-fit text-xs ">
@@ -55,11 +55,11 @@ function Services() {
 			<BrandsCarousel />
 
 			<section className="bg-[url(/services/section-bg.png)] flex flex-col gap-8 px-20 py-28 mx-4 my-6 rounded-2xl justify-center items-center text-right text-white">
-				<h3 className="text-3xl w-4xl">
+				<h3 className="text-3xl max-w-4xl">
 					When you cut handle time, improve routing, and scale automation, your
 					bill shouldn't go up.
 				</h3>
-				<p className="text-[14px] w-4xl">
+				<p className="text-[14px] max-w-4xl">
 					Glia frees you from the usage fees and per-seat contracts inhibiting
 					your ROI. With one fixed price, you enjoy unlimited usage, all the
 					power of AI, and no seat limits. You drive efficiency. We clear the
@@ -70,7 +70,7 @@ function Services() {
 				</p>
 			</section>
 
-			<section className="flex my-8 mx-32 gap-20">
+			<section className="flex flex-col lg:flex-row my-8 lg:mx-32 mx-8 gap-20">
 				<div className="flex flex-col gap-5 w-[600px]">
 					<h3 className="font-bold text-3xl">Designed to Drive ROI</h3>
 					<p>
@@ -229,7 +229,7 @@ function Services() {
 					SUCCESS STORIES
 				</span>
 				<h3 className="font-bold text-3xl">Impact You Can Measure</h3>
-				<div className="flex mx-32 justify-between rounded-2xl bg-white">
+				<div className="flex flex-col lg:flex-row mx-32 justify-between rounded-2xl bg-white">
 					<div className="flex flex-col justify-between">
 						<div className="flex flex-col p-9 gap-3 items-start">
 							<img src="/services/company-1.png" alt="Company" />
@@ -277,7 +277,7 @@ function Services() {
 						/>
 					</div>
 				</div>
-				<div className="flex justify-between gap-48">
+				<div className="grid grid-cols-2 lg:grid-cols-4 justify-between gap-x-48 gap-y-6">
 					<img
 						src="/services/company-1.png"
 						alt="Company"
@@ -312,14 +312,14 @@ function Services() {
 				<div className="flex gap-3 ">
 					<Button
 						customClass={
-							"bg-black text-white hover:text-black hover:bg-white border border-fuchsia-600"
+							"bg-black text-white hover:text-black hover:bg-white px-6 py-2.5 border border-fuchsia-600"
 						}
 					>
 						See a Demo
 					</Button>
 					<Button
 						customClass={
-							"bg-white text-black hover:bg-neutral-800 hover:text-white hover:shadow hover:shadow-lime-400"
+							"bg-white text-black hover:bg-neutral-800 hover:text-white px-6 py-2.5 hover:shadow hover:shadow-lime-400"
 						}
 					>
 						Contact Us

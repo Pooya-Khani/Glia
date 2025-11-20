@@ -11,13 +11,12 @@ function AppLayout() {
 		pathname === "/services" || pathname === "/free-trade-zones-club"
 			? "text-black"
 			: "text-white";
-	const navBgColor = pathname === "/services" ? "bg-white" : "";
 
 	return (
 		<>
-			<NavBar textColor={navTextColor} bgColor={navBgColor} />
+			<NavBar textColor={navTextColor} />
 			<main>
-				<div className="flex flex-col max-w-480">
+				<div className="flex flex-col max-w-480 overflow-x-hidden">
 					<Outlet />
 				</div>
 			</main>
