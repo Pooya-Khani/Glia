@@ -307,11 +307,11 @@ function Home() {
 				</div>
 				{/* Main content of section */}
 				<div className="flex flex-col gap-8 ">
-					<div className="w-[340px] flex flex-col gap-6">
+					<div className="lg:w-[340px] flex flex-col gap-6">
 						<span className="w-fit bg-emerald-950 rounded-full border border-zinc-400 shadow-sm shadow-white px-3 font-semibold">
 							AI FOR ALL
 						</span>
-						<h3 className="text-4xl w-xl font-bold">AI That Works For All</h3>
+						<h3 className="text-4xl lg:w-xl font-bold">AI That Works For All</h3>
 						<p className="text-xs text-stone-300">
 							How many of your customer interactions should you enhance or
 							automate with AI? All of them. Unlock game-changing outcomes
