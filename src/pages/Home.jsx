@@ -975,7 +975,7 @@ function Home() {
 
 					{/* Article Section */}
 					<div className="space-y-6 max-w-6xl mx-auto">
-						<div className="flex flex-col lg:flex-row items-center justify-between">
+						<div className="flex flex-col gap-4 lg:flex-row items-center justify-between">
 							<div className="space-y-4">
 								<span className="text-xs font-semibold tracking-wide bg-stone-200 px-3 py-1 rounded-full inline-block">
 									Contact center ai Resources
